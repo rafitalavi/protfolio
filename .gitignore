@@ -1,0 +1,42 @@
+# -----------------------
+# Node / Frontend
+# -----------------------
+frontend/node_modules/
+frontend/.pnp/
+frontend/.pnp.js
+frontend/build
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# -----------------------
+# Python / Backend
+# -----------------------
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/*.pyd
+/venv/
+
+# -----------------------
+# Testing / Coverage
+# -----------------------
+frontend/coverage/
+backend/__pycache__/
+pytest_cache/
+
+# -----------------------
+# Environment Files
+# -----------------------
+*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# -----------------------
+# OS / Misc
+# -----------------------
+.DS_Store
+Thumbs.db
