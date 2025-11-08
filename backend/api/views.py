@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .models import Profile , Skill , Experience , Project , Service , Publication , ContactMessage , Education , Certification
 from .serializers import *
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 class IsAuthenticatedOrReadOnly(permissions.BasePermission):
@@ -91,3 +92,8 @@ class CertificationViewSet(viewsets.ModelViewSet):
     queryset = Certification.objects.all()
     serializer_class = CertificationSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+
+from django.shortcuts import render
+
+def frontend(request):
+    return render(request, "index.html")
