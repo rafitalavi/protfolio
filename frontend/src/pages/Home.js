@@ -86,7 +86,7 @@ if (!data.profile) return (
       </div>
 
       <p className="text-lg text-gray-600 font-medium animate-pulse">
-        Loading Professional Profile...
+        Loading Profile...
       </p>
     </div>
   </div>

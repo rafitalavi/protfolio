@@ -26,9 +26,9 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
      path('', include('api.urls')),
 ] 
-urlpatterns += [
-    re_path(r'^.*$', frontend),
-]
+# urlpatterns += [
+#     re_path(r'^.*$', frontend),
+# ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

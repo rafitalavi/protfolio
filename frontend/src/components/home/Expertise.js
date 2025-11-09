@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SectionContainer from '../common/SectionContainer';
 import { FaBriefcase, FaUsers } from 'react-icons/fa';
-import { SiHyperskill } from "react-icons/si";
+
 const Expertise = ({ services }) => (
   <SectionContainer title="Strategic Expertise" subtitle="Specialized domains where I drive maximum business value" icon={FaUsers}>
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
