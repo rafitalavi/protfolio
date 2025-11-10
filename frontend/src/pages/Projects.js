@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SectionContainer from '../components/common/SectionContainer';
 import { FaBriefcase } from 'react-icons/fa';
+import { API } from '../api';
 
-const API = 'http://localhost:8000/api';
+
 
 const Projects = () => {
     const [projects, setProjects] = useState([]);

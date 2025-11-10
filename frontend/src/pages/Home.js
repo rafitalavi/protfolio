@@ -28,47 +28,58 @@ const Home = () => {
   });
 
 useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const [
-        profileRes,
-        skillsRes,
-        projectsRes,
-        expertiseRes,
-        pubsRes,
-        experienceRes,
-        educationRes,
-        certificationsRes,
-      ] = await Promise.all([
-        axios.get(`${API}/profile/`),
-        axios.get(`${API}/skills/`),
-        axios.get(`${API}/projects/`),
-        axios.get(`${API}/services/`),
-        axios.get(`${API}/publications/`),
-        axios.get(`${API}/experiences/`),
-        axios.get(`${API}/education/`),
-        axios.get(`${API}/certifications/`),
-      ]);
+ const fetchData = async () => {
+  try {
+    const [
+      profileRes,
+      skillsRes,
+      projectsRes,
+      expertiseRes,
+      pubsRes,
+      experienceRes,
+      educationRes,
+      certificationsRes,
+    ] = await Promise.all([
+      axios.get(`${API}/profile/`),
+      axios.get(`${API}/skills/`),
+      axios.get(`${API}/projects/`),
+      axios.get(`${API}/services/`),
+      axios.get(`${API}/publications/`),
+      axios.get(`${API}/experiences/`),
+      axios.get(`${API}/education/`),
+      axios.get(`${API}/certifications/`),
+    ]);
 
-      // Optional 2-second delay for welcome animation
-      setTimeout(() => {
-        setData({
-          profile: profileRes.data,
-          skills: skillsRes.data,
-          projects: projectsRes.data,
-          expertise: expertiseRes.data,
-          publications: pubsRes.data,
-          experience: experienceRes.data,
-          education: educationRes.data,
-          certifications: certificationsRes.data,
-        });
-        setLoading(false); // if you have a loading state
-      }, 500);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      setLoading(false);
-    }
-  };
+    // Ensure all responses are arrays where needed
+    const safeData = {
+      profile: profileRes.data || null,
+      skills: Array.isArray(skillsRes.data) ? skillsRes.data : [],
+      projects: Array.isArray(projectsRes.data) ? projectsRes.data : [],
+      expertise: Array.isArray(expertiseRes.data) ? expertiseRes.data : [],
+      publications: Array.isArray(pubsRes.data) ? pubsRes.data : [],
+      experience: Array.isArray(experienceRes.data) ? experienceRes.data : [],
+      education: Array.isArray(educationRes.data) ? educationRes.data : [],
+      certifications: Array.isArray(certificationsRes.data) ? certificationsRes.data : [],
+    };
+
+    setData(safeData);
+    setLoading(false);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    setData({
+      profile: null,
+      skills: [],
+      projects: [],
+      expertise: [],
+      publications: [],
+      experience: [],
+      education: [],
+      certifications: [],
+    });
+    setLoading(false);
+  }
+};
+
 
   fetchData();
 }, []);
