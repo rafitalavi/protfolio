@@ -28,9 +28,10 @@ const ResearchSection = ({ publications }) => (
           <p className="text-sm text-gray-600 mb-3 font-medium">
             {pub.journal} • {pub.authors}
           </p>
-          <p className="text-gray-700 leading-relaxed mb-4 line-clamp-3">
-            {pub.abstract}
-          </p>
+          <div
+  className="text-gray-700 leading-relaxed mb-4 line-clamp-3"
+  dangerouslySetInnerHTML={{ __html: pub.abstract }}
+/>
           <div className="flex items-center justify-between">
             <Link to={`/publications/`} className="text-blue-600 hover:text-blue-800 font-semibold text-sm flex items-center group">
               Read Research

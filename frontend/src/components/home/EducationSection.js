@@ -206,26 +206,8 @@ const EducationSection = ({ education }) => {
           viewport={{ once: true }}
           className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12"
         >
-          <div className="text-center p-6 bg-white/90 rounded-2xl border border-gray-100 shadow-md hover:shadow-lg transition-all">
-            <div className="text-3xl font-extrabold text-indigo-600 mb-2">
-              {education.length}
-            </div>
-            <div className="text-gray-700 font-medium">Degrees</div>
-          </div>
-
-          <div className="text-center p-6 bg-white/90 rounded-2xl border border-gray-100 shadow-md hover:shadow-lg transition-all">
-            <div className="text-3xl font-extrabold text-indigo-600 mb-2">
-              {
-                education.filter(
-                  (edu) =>
-                    !edu.end_date || new Date(edu.end_date) > new Date()
-                ).length
-              }
-            </div>
-            <div className="text-gray-700 font-medium">Ongoing</div>
-          </div>
-
-          <div className="text-center p-6 bg-white/90 rounded-2xl border border-gray-100 shadow-md hover:shadow-lg transition-all">
+          
+          {/* <div className="text-center p-6 bg-white/90 rounded-2xl border border-gray-100 shadow-md hover:shadow-lg transition-all">
             <div className="text-3xl font-extrabold text-indigo-600 mb-2">
               {new Date().getFullYear() -
                 Math.min(
@@ -235,7 +217,7 @@ const EducationSection = ({ education }) => {
                 )}
             </div>
             <div className="text-gray-700 font-medium">Years of Study</div>
-          </div>
+          </div> */}
         </motion.div>
       )}
     </SectionContainer>
