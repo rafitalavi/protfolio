@@ -39,8 +39,8 @@ const Publications = () => {
   {(pub.authors && pub.authors.length > 0 ? pub.authors.join(', ') : "Research Team")} • {pub.journal} 
 </p>
 
-                                    <p className="text-gray-700 leading-relaxed mb-6">
-                                        {pub.abstract}
+                                    <p className="text-gray-700 leading-relaxed mb-6" dangerouslySetInnerHTML={{ __html: pub.abstract || 'No abstract available.'}}>
+                                        
                                     </p>
                                     
                                     <div className="flex flex-wrap gap-4">

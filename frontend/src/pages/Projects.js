@@ -43,8 +43,8 @@ const Projects = () => {
                                 <h3 className="font-bold text-xl mb-3 text-gray-900 group-hover:text-indigo-700 transition-colors">
                                     {project.title}
                                 </h3>
-                                <p className="text-gray-600 line-clamp-3 mb-4 leading-relaxed">
-                                    {project.description}
+                                <p className="text-gray-600 line-clamp-3 mb-4 leading-relaxed"
+                                     dangerouslySetInnerHTML={{ __html: project.long_description || project.description }}>
                                 </p>
                                 <div className="flex items-center justify-between">
                                     <Link 
